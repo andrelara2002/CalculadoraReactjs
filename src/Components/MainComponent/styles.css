@@ -1,0 +1,82 @@
+body,
+html {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.calculator {
+  box-shadow: 0 0 10px 2px lightgrey;
+  border-radius: 0.6rem;
+  padding: 1rem;
+
+  width: 20rem;
+}
+#display {
+  text-align: end;
+  padding: 1rem 2rem 0.4rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid lightgray;
+}
+
+#display p {
+  margin-bottom: 0;
+  color: lightgrey;
+}
+
+#display h1 {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+.numbers {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 4;
+  justify-content: center;
+  align-items: center;
+}
+
+.modifiers {
+  display: grid;
+}
+#equalButton {
+  background: #58a6ff;
+}
+.options {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 1rem;
+}
+
+button {
+  margin: 0.2rem;
+  padding: 0.4rem;
+
+  border-radius: 0.4rem;
+  border: none;
+
+  height: 2rem;
+  transition: 300ms;
+}
+#dumbButton {
+  background: none;
+}
+button:hover {
+  background: #58a6ff;
+  transition: 300ms;
+
+  cursor: pointer;
+}
