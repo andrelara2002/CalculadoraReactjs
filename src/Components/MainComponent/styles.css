@@ -11,12 +11,9 @@ html {
   justify-content: center;
   flex-direction: column;
 }
-.calculator {
-  box-shadow: 0 0 10px 2px lightgrey;
-  border-radius: 0.6rem;
-  padding: 1rem;
-
-  width: 20rem;
+.calculator{
+  width: 100%;
+  margin: 0;
 }
 #display {
   text-align: end;
@@ -26,11 +23,13 @@ html {
 }
 
 #display p {
+  transition: 500ms;
   margin-bottom: 0;
   color: lightgrey;
 }
 
 #display h1 {
+  transition: 500ms;
   margin-bottom: 0;
   padding-bottom: 0;
   margin-top: 0;
@@ -79,4 +78,21 @@ button:hover {
   transition: 300ms;
 
   cursor: pointer;
+}
+#equalButton:focus, button:focus{
+  border: 1px solid #58a6ff ;
+  background: none;
+  color: #58a6ff;
+  transition: 300ms;
+  outline: none;
+}
+
+@media (min-width: 700px){
+  .calculator {
+    box-shadow: 0 0 10px 2px lightgrey;
+    border-radius: 0.6rem;
+    padding: 1rem;
+  
+    width: 20rem;
+  }
 }

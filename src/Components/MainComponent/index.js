@@ -73,7 +73,65 @@ class MainComponent extends Component {
   }
 
   calculate = () =>{
-    
+    const primaryDisplay = document.getElementById('valueDisplay')
+    const secondaryDisplay = document.getElementById('secondaryDisplay')
+
+    const {operation} = this.state
+    let total =  0
+    let value_one = parseInt(this.state.first_number)
+    let value_two = parseInt(this.state.second_number);
+
+    if(operation === '+'){
+      total += value_one+value_two
+    }
+    else if(operation === 'x'){
+      total += value_one*value_two
+    }
+    else if(operation === '/'){
+      total += value_two/value_one
+    }
+    else {
+      total += value_two- value_one
+    }
+
+    primaryDisplay.innerHTML = total
+    secondaryDisplay.innerHTML = this.state.first_number+operation+this.state.second_number
+
+    this.setState({
+      first_number : total.toString()
+    })
+  }
+
+  clearLastLetter = () =>{
+    let value = this.state.first_number.toString()
+    if(document.getElementById('valueDisplay').innerHTML === '0'){
+    }
+    else{
+      if(value.slice(0, -1) !=='')
+      this.setState({
+        first_number : value.slice(0, -1)
+      }, () =>{
+        document.getElementById('valueDisplay').innerHTML = this.state.first_number
+      })
+      else{
+        this.setState({
+          first_number : ''
+        }, () =>{
+          document.getElementById('valueDisplay').innerHTML = 0;
+        })
+      }
+    }
+  }
+
+  clearAll = () =>{
+    this.setState({
+      first_number :'',
+      second_number : '',
+      operation : ''
+    }, () => {
+      document.getElementById('valueDisplay').innerHTML = 0
+      document.getElementById('secondaryDisplay').innerHTML = 0
+    })
   }
 
   render() {
@@ -85,8 +143,8 @@ class MainComponent extends Component {
             <h1 id='valueDisplay'>{0}</h1>
           </div>
           <div className="options">
-            <button onClick={() => alert(0)}> AC </button>
-            <button onClick={() => alert(0)}> C </button>
+            <button onClick={() => this.clearAll()}> AC </button>
+            <button onClick={() => this.clearLastLetter()}> C </button>
           </div>
           <div className="keypad">
             <div className="numbers">
@@ -101,7 +159,7 @@ class MainComponent extends Component {
               <button onClick={() => this.setNumber(9)}> {9} </button>
               <button id="dumbButton" />
               <button onClick={() => this.setNumber(0)}> {0} </button>
-              <button id="equalButton"> = </button>
+              <button id="equalButton" onClick={()=>{this.calculate()}}> = </button>
             </div>
             <div className="modifiers">
               <button onClick={() => this.setOperator(1)}> + </button>
