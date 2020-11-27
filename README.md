@@ -1,3 +1,3 @@
-# react-kpctxg
+# Calculadora em React Js
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/react-kpctxg)
+Projeto de calculadora comum em React.js para treinamento, em breve estarei convertendo em React Native. 😁
